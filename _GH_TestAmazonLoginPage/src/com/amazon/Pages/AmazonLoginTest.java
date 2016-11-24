@@ -29,12 +29,11 @@ public class AmazonLoginTest {
 			 TestUtils.getBase64DecodedString(TestUtils.getPropVal("username")), 
 			 TestUtils.getBase64DecodedString(TestUtils.getPropVal("password")));
 
-
 			//wait for WebELment to be found on the displayed amazon main page
 			String xpath = "//a[text()= 'Hi, Henry']";
 			//use lamda expression available in Java 8
-			new WebDriverWait(driver,30).until((WebDriver d)->
-			d.findElement(By.xpath(xpath)));
+			new WebDriverWait(driver,30)
+				.until((WebDriver d)->d.findElement(By.xpath(xpath)));
 		}
 		catch(TimeoutException e){
 			System.out.println(e.getMessage());
